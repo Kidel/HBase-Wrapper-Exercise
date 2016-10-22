@@ -19,6 +19,10 @@ public class RowBean implements Serializable {
 		super();
 		this.row = row;
 	}
+	
+	public String getValue(String family, String qualifier) {
+		return row.get(family + ":" + qualifier);
+	}
 
 	public Map<String, String> getRow() {
 		return row;
@@ -27,7 +31,7 @@ public class RowBean implements Serializable {
 	public void setRow(Map<String, String> row) {
 		this.row = row;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "RowBean [row=" + row + "]";
