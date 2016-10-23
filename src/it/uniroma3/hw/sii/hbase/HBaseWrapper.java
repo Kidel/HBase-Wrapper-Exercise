@@ -1,8 +1,6 @@
 package it.uniroma3.hw.sii.hbase;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
@@ -43,13 +41,13 @@ public class HBaseWrapper {
 		HTable hTable = new HTable(config, tableName);
 		Get get = new Get(rowKey.getBytes());
 		Result rs = hTable.get(get);
-		Map<String, String> row = new HashMap<String, String>(); 		
+		RowBean rb = new RowBean(tableName, rowKey); 		
 		for(KeyValue kv : rs.raw()){
-			row.put((new String(kv.getFamily())) + ":" + (new String(kv.getQualifier())), 
+			rb.addRowContent((new String(kv.getFamily())), (new String(kv.getQualifier())), 
 					(new String(kv.getValue())));
 		}
 		hTable.close();
-		return new RowBean(row);
+		return rb;
 	}
 
 }
