@@ -15,10 +15,11 @@ import org.apache.hadoop.hbase.KeyValue;
 
 public class HBaseWrapper {
 	
+	private Configuration config = HBaseConfiguration.create();
+	
 	public void addRecord(String tableName, String rowKey, String family,
 			String qualifier, String value) throws Exception 
 	{
-		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
 		Put p = new Put(rowKey.getBytes());
 		p.add(family.getBytes(), qualifier.getBytes(),
@@ -30,7 +31,6 @@ public class HBaseWrapper {
 
 	public void delRecord (String tableName, String rowKey) throws IOException
 	{
-		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
 		Delete d = new Delete(rowKey.getBytes());
 		hTable.delete(d);
@@ -40,7 +40,6 @@ public class HBaseWrapper {
 
 	public RowBean getOneRecord(String tableName, String rowKey) throws IOException
 	{
-		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
 		Get get = new Get(rowKey.getBytes());
 		Result rs = hTable.get(get);
