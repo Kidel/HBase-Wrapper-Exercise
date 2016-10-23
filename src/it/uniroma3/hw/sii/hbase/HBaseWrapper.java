@@ -36,7 +36,7 @@ public class HBaseWrapper {
 		Delete d = new Delete(Bytes.toBytes(rowKey));
 		hTable.delete(d);
 		hTable.close();
-		System.out.println("Deleted record " + tableName + " " + rowKey);
+		System.out.println("Deleted record " + tableName + " " + rowKey + " (if it ever existed)");
 	}
 
 	public RowBean getOneRecord(String tableName, String rowKey) throws IOException
