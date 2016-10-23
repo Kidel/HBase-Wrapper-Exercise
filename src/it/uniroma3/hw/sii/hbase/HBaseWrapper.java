@@ -11,7 +11,6 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Delete;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.KeyValue;
 
 public class HBaseWrapper {
@@ -21,9 +20,9 @@ public class HBaseWrapper {
 	{
 		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
-		Put p = new Put(Bytes.toBytes(rowKey));
-		p.add(Bytes.toBytes(family), Bytes.toBytes(qualifier),
-				Bytes.toBytes(value));
+		Put p = new Put(rowKey.getBytes());
+		p.add(family.getBytes(), qualifier.getBytes(),
+				value.getBytes());
 		hTable.put(p);
 		hTable.close();
 		System.out.println("Added record " + tableName + " " + rowKey + " " + family + ":" + qualifier + " " + value);
@@ -33,7 +32,7 @@ public class HBaseWrapper {
 	{
 		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
-		Delete d = new Delete(Bytes.toBytes(rowKey));
+		Delete d = new Delete(rowKey.getBytes());
 		hTable.delete(d);
 		hTable.close();
 		System.out.println("Deleted record " + tableName + " " + rowKey + " (if it ever existed)");
