@@ -16,24 +16,7 @@ import org.apache.hadoop.hbase.KeyValue;
 
 public class HBaseWrapper {
 	
-	// TODO test
-	public static void main(String[] argv) throws IOException
-	{
-		try {
-			delRecord("blogposts", "post2");
-			addRecord("blogposts", "post2", "post", "author", "Gaetano");
-			System.out.println(getOneRecord("blogposts", "post2"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	// TODO remove static
-	public static void addRecord(String tableName, String rowKey, String family,
+	public void addRecord(String tableName, String rowKey, String family,
 			String qualifier, String value) throws Exception 
 	{
 		Configuration config = HBaseConfiguration.create();
@@ -46,8 +29,7 @@ public class HBaseWrapper {
 		System.out.println("Added record " + tableName + " " + rowKey + " " + family + ":" + qualifier + " " + value);
 	}
 
-	// TODO remove static
-	public static void delRecord (String tableName, String rowKey) throws IOException
+	public void delRecord (String tableName, String rowKey) throws IOException
 	{
 		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
@@ -57,8 +39,7 @@ public class HBaseWrapper {
 		System.out.println("Deleted record " + tableName + " " + rowKey);
 	}
 
-	// TODO remove static
-	public static RowBean getOneRecord(String tableName, String rowKey) throws IOException
+	public RowBean getOneRecord(String tableName, String rowKey) throws IOException
 	{
 		Configuration config = HBaseConfiguration.create();
 		HTable hTable = new HTable(config, tableName);
