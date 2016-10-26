@@ -4,7 +4,9 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+bin/*.jar
+src/*.jar
+miglayout-*
 *.war
 *.ear
 
