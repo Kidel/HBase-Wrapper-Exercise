@@ -69,7 +69,7 @@ public class HBaseWrapperUI {
 		frmHbaseWrapperUi = new JFrame();
 		frmHbaseWrapperUi.setResizable(false);
 		frmHbaseWrapperUi.setTitle("HBase Wrapper UI");
-		frmHbaseWrapperUi.setBounds(100, 100, 748, 519);
+		frmHbaseWrapperUi.setBounds(100, 100, 754, 523);
 		frmHbaseWrapperUi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmHbaseWrapperUi.getContentPane().setLayout(null);
 
