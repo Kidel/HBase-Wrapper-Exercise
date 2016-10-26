@@ -1,8 +1,9 @@
 package it.uniroma3.hw.sii.hbase;
 
-import java.io.IOException;
+// import java.io.IOException;
 
 public class Test {
+	/*
 	public static void main(String[] argv) throws IOException
 	{
 		HBaseWrapper hw = new HBaseWrapper();
@@ -18,4 +19,5 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
+	*/
 }
