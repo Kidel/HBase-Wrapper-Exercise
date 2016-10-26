@@ -72,45 +72,45 @@ public class HBaseWrapperUI {
 		panel.setBorder(new TitledBorder(null, "Add Record", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setToolTipText("Add Record");
 		frmHbaseWrapperUi.getContentPane().add(panel);
-		panel.setLayout(new MigLayout("", "[][][][][][][][][]", "[][][]"));
+		panel.setLayout(new MigLayout("", "[114px][113px][113px][114px][114px]", "[15px][19px][25px]"));
 
 		JLabel lblNewLabel_1 = new JLabel("Table Name");
-		panel.add(lblNewLabel_1, "cell 0 0");
+		panel.add(lblNewLabel_1, "cell 0 0,alignx left,aligny top");
 
 		JLabel lblNewLabel_2 = new JLabel("Row Key");
-		panel.add(lblNewLabel_2, "cell 2 0");
+		panel.add(lblNewLabel_2, "cell 1 0,alignx left,aligny top");
 
 		JLabel lblNewLabel_3 = new JLabel("Family");
-		panel.add(lblNewLabel_3, "cell 4 0");
+		panel.add(lblNewLabel_3, "cell 2 0,alignx left,aligny top");
 
 		JLabel lblNewLabel_4 = new JLabel("Qualifier");
-		panel.add(lblNewLabel_4, "cell 6 0");
+		panel.add(lblNewLabel_4, "cell 3 0,alignx left,aligny top");
 
 		JLabel lblNewLabel_5 = new JLabel("Value");
-		panel.add(lblNewLabel_5, "cell 8 0");
+		panel.add(lblNewLabel_5, "cell 4 0,alignx left,aligny top");
 
 		add_tableName = new JTextField();
-		panel.add(add_tableName, "cell 0 1");
+		panel.add(add_tableName, "cell 0 1,alignx left,aligny top");
 		add_tableName.setColumns(10);
 
 		add_rowKey = new JTextField();
-		panel.add(add_rowKey, "cell 2 1");
+		panel.add(add_rowKey, "cell 1 1,growx,aligny top");
 		add_rowKey.setColumns(10);
 
 		add_family = new JTextField();
-		panel.add(add_family, "cell 4 1");
+		panel.add(add_family, "cell 2 1,growx,aligny top");
 		add_family.setColumns(10);
 
 		add_qualifier = new JTextField();
-		panel.add(add_qualifier, "cell 6 1");
+		panel.add(add_qualifier, "cell 3 1,alignx left,aligny top");
 		add_qualifier.setColumns(10);
 
 		add_value = new JTextField();
-		panel.add(add_value, "cell 8 1");
+		panel.add(add_value, "cell 4 1,alignx left,aligny top");
 		add_value.setColumns(10);
 
 		JButton btn_addRecord = new JButton("Add Record");
-		panel.add(btn_addRecord, "cell 0 2");
+		panel.add(btn_addRecord, "cell 0 2,alignx left,aligny top");
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(6, 117, 737, 105);
