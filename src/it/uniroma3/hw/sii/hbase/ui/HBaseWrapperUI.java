@@ -19,6 +19,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.SystemColor;
+import javax.swing.border.LineBorder;
+import java.awt.Font;
 
 public class HBaseWrapperUI {
 
@@ -43,6 +46,7 @@ public class HBaseWrapperUI {
 			public void run() {
 				try {
 					HBaseWrapperUI window = new HBaseWrapperUI();
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					window.frmHbaseWrapperUi.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,7 +75,7 @@ public class HBaseWrapperUI {
 
 		JPanel panel = new JPanel();
 		panel.setBounds(6, 6, 737, 105);
-		panel.setBorder(new TitledBorder(null, "Add Record", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Add Record", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
 		panel.setToolTipText("Add Record");
 		frmHbaseWrapperUi.getContentPane().add(panel);
 		panel.setLayout(new MigLayout("", "[114px][113px][113px][114px][114px]", "[15px][19px][25px]"));
@@ -112,11 +116,13 @@ public class HBaseWrapperUI {
 		add_value.setColumns(10);
 
 		JButton btn_addRecord = new JButton("Add Record");
+		btn_addRecord.setForeground(UIManager.getColor("Button.highlight"));
+		btn_addRecord.setBackground(UIManager.getColor("CheckBoxMenuItem.acceleratorForeground"));
 		panel.add(btn_addRecord, "cell 0 2,alignx left,aligny top");
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(6, 117, 737, 105);
-		panel_1.setBorder(new TitledBorder(null, "Delete Record", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Delete Record", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
 		frmHbaseWrapperUi.getContentPane().add(panel_1);
 		panel_1.setLayout(new MigLayout("", "[][][]", "[][][]"));
 
@@ -135,11 +141,13 @@ public class HBaseWrapperUI {
 		del_rowKey.setColumns(10);
 
 		JButton btn_delRecord = new JButton("Del Record");
+		btn_delRecord.setForeground(UIManager.getColor("Button.highlight"));
+		btn_delRecord.setBackground(UIManager.getColor("CheckBoxMenuItem.acceleratorForeground"));
 		panel_1.add(btn_delRecord, "cell 0 2");
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(6, 228, 737, 105);
-		panel_2.setBorder(new TitledBorder(null, "Get One Record", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_2.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Get One Record", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
 		frmHbaseWrapperUi.getContentPane().add(panel_2);
 		panel_2.setLayout(new MigLayout("", "[][][]", "[][][]"));
 
@@ -158,14 +166,18 @@ public class HBaseWrapperUI {
 		getOne_rowKey.setColumns(10);
 
 		JButton btn_getOneRecord = new JButton("Get Record");
+		btn_getOneRecord.setBackground(UIManager.getColor("CheckBoxMenuItem.acceleratorForeground"));
+		btn_getOneRecord.setForeground(UIManager.getColor("Button.highlight"));
 		panel_2.add(btn_getOneRecord, "cell 0 2");
 
 		final JTextArea output_textArea = new JTextArea();
-		output_textArea.setBackground(UIManager.getColor("Label.background"));
+		output_textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		output_textArea.setText("...");
+		output_textArea.setBackground(SystemColor.controlDkShadow);
 		output_textArea.setWrapStyleWord(true);
 		output_textArea.setLineWrap(true);
-		output_textArea.setForeground(Color.BLACK);
-		output_textArea.setToolTipText("output");
+		output_textArea.setForeground(Color.WHITE);
+		output_textArea.setToolTipText("output box");
 		output_textArea.setBounds(6, 339, 737, 137);
 		output_textArea.setEditable(false);
 		frmHbaseWrapperUi.getContentPane().add(output_textArea);
@@ -181,7 +193,7 @@ public class HBaseWrapperUI {
 		btn_addRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				output_textArea.setText("");
-				output_textArea.setForeground(Color.BLACK);
+				output_textArea.setForeground(Color.WHITE);
 				try {
 					hw.addRecord(add_tableName.getText(), add_rowKey.getText(), add_family.getText(), add_qualifier.getText(), add_value.getText());
 					output_textArea.setText("Added record " + add_tableName.getText() 
@@ -198,7 +210,7 @@ public class HBaseWrapperUI {
 		btn_delRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				output_textArea.setText("");
-				output_textArea.setForeground(Color.BLACK);
+				output_textArea.setForeground(Color.WHITE);
 				try {
 					hw.delRecord(del_tableName.getText(), del_rowKey.getText());
 					output_textArea.setText("Deleted record " + del_tableName.getText() + " " + del_rowKey.getText() + " (if it ever existed)");
@@ -213,7 +225,7 @@ public class HBaseWrapperUI {
 		btn_getOneRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				output_textArea.setText("");
-				output_textArea.setForeground(Color.BLACK);
+				output_textArea.setForeground(Color.WHITE);
 				try {
 					RowBean rb = hw.getOneRecord(getOne_tableName.getText(), getOne_rowKey.getText());
 					output_textArea.setText(rb.toString());
