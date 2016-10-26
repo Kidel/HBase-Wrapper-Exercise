@@ -18,6 +18,7 @@ import it.uniroma3.hw.sii.hbase.RowBean;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.UIManager;
 
 public class HBaseWrapperUI {
 
@@ -62,6 +63,7 @@ public class HBaseWrapperUI {
 	 */
 	private void initialize() {
 		frmHbaseWrapperUi = new JFrame();
+		frmHbaseWrapperUi.setResizable(false);
 		frmHbaseWrapperUi.setTitle("HBase Wrapper UI");
 		frmHbaseWrapperUi.setBounds(100, 100, 748, 519);
 		frmHbaseWrapperUi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -159,6 +161,7 @@ public class HBaseWrapperUI {
 		panel_2.add(btn_getOneRecord, "cell 0 2");
 
 		final JTextArea output_textArea = new JTextArea();
+		output_textArea.setBackground(UIManager.getColor("Label.background"));
 		output_textArea.setWrapStyleWord(true);
 		output_textArea.setLineWrap(true);
 		output_textArea.setForeground(Color.BLACK);
