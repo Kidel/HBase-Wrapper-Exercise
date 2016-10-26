@@ -22,6 +22,7 @@ import javax.swing.UIManager;
 import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class HBaseWrapperUI {
 
@@ -67,6 +68,7 @@ public class HBaseWrapperUI {
 	 */
 	private void initialize() {
 		frmHbaseWrapperUi = new JFrame();
+		frmHbaseWrapperUi.setIconImage(Toolkit.getDefaultToolkit().getImage(HBaseWrapperUI.class.getResource("/hbase-webapps/static/favicon.ico")));
 		frmHbaseWrapperUi.setResizable(false);
 		frmHbaseWrapperUi.setTitle("HBase Wrapper UI");
 		frmHbaseWrapperUi.setBounds(100, 100, 754, 523);
