@@ -1,4 +1,4 @@
-package it.uniroma3.hs.sii.hbase.ui;
+package it.uniroma3.hw.sii.hbase.ui;
 
 import java.awt.EventQueue;
 
