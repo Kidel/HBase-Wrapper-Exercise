@@ -6,8 +6,9 @@
 # Package Files #
 bin/*.jar
 src/*.jar
-jgoodies-*
-miglayout-*
+jgoodies-*.jar
+miglayout-*.zip
+miglayout*.jar
 *.war
 *.ear
 
