@@ -1,0 +1,19 @@
+create 'dia', 'informatica', 'automazione'
+
+put 'dia', 'professore1',  'informatica:reti', 'Pino'
+put 'dia', 'professore2',  'informatica:ia', 'Ale'
+put 'dia', 'professore3',  'informatica:reti', 'Titto'
+put 'dia', 'professore4',  'informatica:reti', 'Pizzo'
+put 'dia', 'professore5',  'informatica:ia', 'Sanso'
+put 'dia', 'professore6',  'automazione:ro', 'Paccia'
+put 'dia', 'professore7',  'automazione:ro', 'Nico'
+put 'dia', 'professore8',  'automazione:ase', 'Ada'
+put 'dia', 'professore9',  'automazione:ase', 'Uli'
+put 'dia', 'professore10', 'automazione:ase', 'Gino'
+
+get 'dia', 'professore3'
+
+scan 'dia', {COLUMNS => 'informatica'}
+scan 'dia', {COLUMNS => 'informatica:reti'}
+scan 'dia', {COLUMNS => 'automazione'}
+scan 'dia', {COLUMNS => 'automazione:ro'}
